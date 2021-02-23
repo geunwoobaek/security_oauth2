@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=mysql;
+    platform: h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .mustache
+
+  jpa:
+    hibernate:
+      ddl-auto: create #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 674155800788-38f30hk57bnm4a9jdugm92smh22v1vam.apps.googleusercontent.com
+            client-secret: NtPsVUgkS-q5ohwzT5NufK5_
+            scope:
+              - email
+              - profile
